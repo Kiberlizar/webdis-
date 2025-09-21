@@ -4,18 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CoinSync</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>Settings</h1>
 
+    <!-- Секція з цінами -->
+    <div class="prices">
+      <h2>Live Prices</h2>
+      <div id="price-container">
+        <p>BTC: <span id="btc-price">Loading...</span></p>
+        <p>USDT: <span id="usdt-price">Loading...</span></p>
+        <p>TON: <span id="ton-price">Loading...</span></p>
+      </div>
+    </div>
+
+    <!-- Форма додавання -->
+    <div class="add-setting-form">
+      <h2>Add New Setting</h2>
+      <form id="add-form">
+        <input type="text" id="setting-name" placeholder="Enter setting name" required>
+        <select id="setting-currency" required>
+          <option value="BTC">BTC</option>
+          <option value="USDT">USDT</option>
+          <option value="TON">TON</option>
+        </select>
+        <button type="submit">Add Setting</button>
+      </form>
+    </div>
+
     <!-- Вкладки -->
     <div class="tabs">
-      <button class="tab active">All settings</button>
-      <button class="tab">Published</button>
-      <button class="tab">BTC</button>
-      <button class="tab">USDT</button>
-      <button class="tab">TON</button>
+      <button class="tab active" data-filter="all">All settings</button>
+      <button class="tab" data-filter="active">Published</button>
+      <button class="tab" data-filter="BTC">BTC</button>
+      <button class="tab" data-filter="USDT">USDT</button>
+      <button class="tab" data-filter="TON">TON</button>
     </div>
 
     <!-- Таблиця -->
@@ -27,24 +52,11 @@
           <th>Remove</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-            <td><a href="#">BTC increase each 2 sec for T-Shirts</a></td>
-            <td>Draft</td>
-            <td><img src="images/trash.webp" alt="Remove" width="20"></td>
-        </tr>
-    <tr>
-        <td><a href="#">USDT decrease each 1 sec for Hoodies</a></td>
-    <td>Active</td>
-    <td><img src="images/trash.webp" alt="Remove" width="20"></td>
-  </tr>
-  <tr>
-    <td><a href="#">TON based for merch each 1 min</a></td>
-    <td>Active</td>
-    <td><img src="images/trash.webp" alt="Remove" width="20"></td>
-  </tr>
-</tbody>
+      <tbody id="settings-table-body">
+        <!-- Дані будуть вставлені з JavaScript -->
+      </tbody>
     </table>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
